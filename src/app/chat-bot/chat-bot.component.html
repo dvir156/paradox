@@ -1,0 +1,23 @@
+<div class="center">
+  <div class="bot" *ngIf="isBotOn">
+  <p-panel header="Olivia">
+    <span *ngIf="!isFinish">
+      {{question.qtext}}
+      <div style="padding-top: 5%;">
+        <input type="text" pInputText [(ngModel)]="answer"/>
+        <span style="padding-left: 0.2%;"></span>
+        <button pButton type="button" label="Submit" (click)="submitAnswer()"></button>
+      </div>
+
+    </span>
+    <span *ngIf="isFinish">
+      Thanks
+    </span>
+  </p-panel>
+</div>
+<span *ngIf="!isBotOn">
+  <input type="text" pInputText [(ngModel)]="chatId"/>
+  <span style="padding-left: 0.2%;"></span>
+  <button pButton type="button" label="Load Chat" (click)="onChatLoad()" ></button>
+</span>
+</div>
