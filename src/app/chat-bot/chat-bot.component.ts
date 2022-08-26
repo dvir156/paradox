@@ -50,6 +50,11 @@ export class ChatBotComponent implements OnInit {
     this.answer = "";
   }
 
+  submitMultichoiceAnswer(answer : string){
+    this.answer = answer;
+    this.submitAnswer();
+  }
+
   nextQuestion(){
     this.questionIndex++;
     if(this.questionIndex == this.chatquestions.length)

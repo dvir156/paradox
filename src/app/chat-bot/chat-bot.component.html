@@ -3,12 +3,16 @@
   <p-panel header="Olivia">
     <span *ngIf="!isFinish">
       {{question.qtext}}
-      <div style="padding-top: 5%;">
+      <div style="padding-top: 5%;" *ngIf="question.qtype != 3">
         <input type="text" pInputText [(ngModel)]="answer"/>
         <span style="padding-left: 0.2%;"></span>
         <button pButton type="button" label="Submit" (click)="submitAnswer()"></button>
       </div>
-
+      <span *ngIf="question.qtype == 3">
+      <div *ngFor="let item of question.atext" style="padding-top: 2%;">
+        <button pButton type="button" label="{{item}}" (click)="submitMultichoiceAnswer(item)"></button>
+      </div>
+    </span>
     </span>
     <span *ngIf="isFinish">
       Thanks
